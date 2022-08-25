@@ -1,0 +1,92 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{PenguMath}
+
+\RequirePackage{amsfonts}
+\RequirePackage{amstext}
+\RequirePackage{amsopn}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{xparse}
+\RequirePackage{derivative}%
+
+\ProvideDocumentCommand{\newmathop}{m m e{_^}}{%
+    \operatorname{#1}%
+    \IfValueT{#3}{_{#3}}%
+    \IfValueT{#4}{^{#4}}%
+    #2%
+}
+
+\DeclareMathSymbol{\shortminus}{\mathbin}{AMSa}{"39}
+
+% Custom groups
+\DeclarePairedDelimiter{\parenth}{(}{)}
+\DeclarePairedDelimiter{\vparenth}{\langle}{\rangle}
+\DeclarePairedDelimiter{\sparenth}{[}{]}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+% Math functions / operators
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Log}{Log}
+
+% Helper "function" = f(x)
+\DeclareDocumentCommand{\fx}{mm}{#1\parenth*{#2}}
+
+% Readable fraction
+\newcommand*{\rfrac}[2]{\ensuremath{{}^{#1}\!/_{#2}}}
+
+% Math Shorthands
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\C}{\field{C}}
+\newcommand{\R}{\field{R}}
+\newcommand{\N}{\field{N}}
+\newcommand{\Z}{\field{Z}}
+\newcommand{\Primes}{\field{P}}
+\newcommand{\BigO}[1]{\ensuremath{\mathcal{O}\parenth*{#1}}}
+\newcommand{\BigOmega}[1]{\ensuremath{\Omega\parenth*{#1}}}
+\newcommand{\BigTheta}[1]{\ensuremath{\Theta\parenth*{#1}}}
+
+% Math operators
+\newcommand{\logn}[2]{\log_{#1}\!{#2}}
+\newcommand*{\evalline}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}}
+\ProvideDocumentCommand{\integral}{s m m e{_^}}{%
+    \int%
+    \IfValueT{#4}{_{#4}}%
+    \IfValueT{#5}{^{#5}}%
+    \IfBooleanTF{#1}{\parenth*{#3}}{#3}%
+    \odif{#2}%
+}
+\ProvideDocumentCommand{\cint}{s m m}{\IfBooleanTF{#1}{\int_C}{\oint_C}#2\odif{#1}}
+
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\nullspace}{null}
+\DeclareMathOperator{\rref}{rref}
+\DeclareMathOperator{\rank}{rank}
+
+% Environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{definition*}{Definition}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+
+% Matrices
+\newcommand{\mat}[1]{\ensuremath{\begin{matrix}#1\end{matrix}}}
+\newcommand{\pmat}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\smat}[1]{\ensuremath{\left[\mat{#1}\right]}}
+\newcommand{\detMat}[1]{\ensuremath{\abs*{\mat{#1}}}}
+\newenvironment{amatrix}[1]{% augmented matrix
+    \left(\begin{array}{@{}*{#1}{c}|c@{}}
+    }{%
+    \end{array}\right)
+}

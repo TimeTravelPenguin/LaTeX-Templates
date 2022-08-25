@@ -1,0 +1,110 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{PenguTex}
+
+\RequirePackage{tikz}
+\usepackage{tikz-cd}
+\RequirePackage{tikz-3dplot}
+\RequirePackage{pgfplots}
+
+\usetikzlibrary{automata, positioning, arrows, calc, arrows.meta, shapes.multipart, decorations.markings}
+
+\pgfplotsset{compat = newest}
+\usepgfplotslibrary{colormaps}
+
+\RequirePackage[a4paper,
+                left=27mm,
+                right=27mm,
+                top=20mm,
+                bottom=15mm,
+                footskip=10mm]{geometry}
+\RequirePackage{parskip}
+\RequirePackage{enumitem}
+\RequirePackage{csquotes}
+\RequirePackage{xparse}
+\RequirePackage{contour}
+\RequirePackage{ulem}
+\RequirePackage[noabbrev]{cleveref}
+\RequirePackage{tabularx}
+
+% Nicer underline
+\renewcommand{\ULdepth}{1pt}
+\contourlength{0.4pt}
+
+\newcommand{\betterunderline}[1]{%
+    \uline{\phantom{#1}}%
+    \llap{\contour{white}{#1}}%
+}
+
+\AtBeginDocument{\setlength{\parindent}{0pt}}
+
+% Adds a (text) to the end of a line
+\newcommand{\tagline}[1]{\hfill(#1)}
+
+\NewDocumentCommand{\easytitle}{s m}{
+    \AtBeginDocument{%
+        \begin{center}
+            {\LARGE\textbf{#2}}\\[1ex]
+            {\IfBooleanF{#1}{{\large Phillip Smith --- c3322845}\\}}{\today}\vspace{2ex}
+        \end{center}
+    }%
+}
+
+% Tikz settings
+
+% pgfplots setting defaults
+%\pgfplotsset{%
+%    compat=newest,
+%    every axis/.append style={%
+    %        clip=false,
+    %        axis lines=middle,
+    %        xlabel={$x$},
+    %        ylabel={$y$},
+    %    }%
+%}
+
+\tikzset{%
+    ->,
+    >=stealth',
+    node distance=2cm,
+    .every state/.style={thick, fill=gray!10},
+    initial text=$ $,
+}
+
+\tikzset{%
+    every text node part/.style={align=center}
+}
+
+\tikzset{stretch/.initial=1}
+
+\tikzset{
+    between/.style args={#1 and #2}{
+        at = ($(#1)!0.5!(#2)$)
+    }
+}
+
+\tikzset{
+    dot/.style={draw=black, fill=white, circle, inner sep=2pt},
+    enum/.style={baseline={([yshift=-1em] current bounding box.north)}},
+    base at/.style={baseline={(#1.base)}},
+    no enum/.style={baseline=default},
+}
+
+% New enum environments
+\newlist{questions}{enumerate}{2}
+\setlist[questions,1]{label=(\alph*), ref=\alph*}
+\setlist[questions,2]{label=\roman*., ref=(\thequestionsi.\roman*)}
+
+\newlist{answers}{enumerate}{2}
+\setlist[answers]{label=(\alph*), ref=\alph*}
+\setlist[answers,2]{label=\roman*., ref=(\theanswersi.\roman*)}
+
+% New cref names
+\crefname{questionsi}{question}{items}
+\crefname{questionsii}{question}{items}
+\Crefname{questionsi}{Question}{Questions}
+\Crefname{questionsii}{Question}{Questions}
+
+\crefname{answersi}{answer}{answers}
+\crefname{answersii}{answer}{answers}
+\Crefname{answersi}{Answer}{Answers}
+\Crefname{answersii}{Answer}{Answers}

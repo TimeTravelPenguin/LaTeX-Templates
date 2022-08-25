@@ -63,7 +63,7 @@
     \IfBooleanTF{#1}{\parenth*{#3}}{#3}%
     \odif{#2}%
 }
-\ProvideDocumentCommand{\cint}{s m m}{\IfBooleanTF{#1}{\int_C}{\oint_C}#2\odif{#1}}
+\ProvideDocumentCommand{\cint}{s m m}{\IfBooleanTF{#1}{\int_C}{\oint_C}#3\odif{#2}}
 
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\nullspace}{null}

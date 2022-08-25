@@ -1,4 +1,4 @@
-1#include:amsfonts
+#include:amsfonts
 #include:amstext
 #include:amsopn
 #include:amsmath

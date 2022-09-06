@@ -33,6 +33,7 @@
 \im{value}
 \Arg{value}
 \Log{value}
+\Res{value}
 
 \fx{function name}{dependant variable}
 

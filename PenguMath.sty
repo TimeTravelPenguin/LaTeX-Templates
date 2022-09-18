@@ -58,7 +58,7 @@
 \newcommand{\logn}[2]{\log_{#1}\!{#2}}
 \newcommand*{\evalline}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}}
 \ProvideDocumentCommand{\integral}{s m m e{_^}}{%
-    \int%
+    \IfValueTF{#5}{\int}{\IfValueTF{#4}{\oint}{\int}}%
     \IfValueT{#4}{_{#4}}%
     \IfValueT{#5}{^{#5}}%
     \IfBooleanTF{#1}{\parenth*{#3}}{#3}%

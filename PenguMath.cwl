@@ -59,6 +59,8 @@
 \ointegral{variable}{body}_{C}
 \ointegral*{variable}{body}
 \ointegral*{variable}{body}_{C}
+\cis{z}
+\cis*{z}
 
 \proj
 \nullspace

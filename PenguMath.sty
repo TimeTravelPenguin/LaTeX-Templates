@@ -70,6 +70,13 @@
     \IfBooleanTF{#1}{\parenth*{#3}}{#3}%
     \odif{#2}%
 }
+\ProvideDocumentCommand{\cis}{s m}{%
+    \IfBooleanTF{#1}{%
+        \cos{\parenth*{#2}}+i\sin{\parenth*{#2}}%
+    }{%
+        \cos{#2}+i\sin{#2}%
+    }
+}
 
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\nullspace}{null}

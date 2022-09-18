@@ -64,7 +64,12 @@
     \IfBooleanTF{#1}{\parenth*{#3}}{#3}%
     \odif{#2}%
 }
-\ProvideDocumentCommand{\ointegral}{s m m}{\IfBooleanTF{#1}{\int_C}{\oint_C}#3\odif{#2}}
+\ProvideDocumentCommand{\ointegral}{s m m e{_}}{%
+    \oint%
+    \IfValueTF{#4}{_{#4}}{C}%
+    \IfBooleanTF{#1}{\parenth*{#3}}{#3}%
+    \odif{#2}%
+}
 
 \DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\nullspace}{null}

@@ -55,8 +55,10 @@
 \integral{variable}{body}_{a}^{b}
 \integral*{variable}{body}
 \integral*{variable}{body}_{a}^{b}
-\cint{variable}{body}
-\cint*{variable}{body}
+\ointegral{variable}{body}
+\ointegral{variable}{body}_{C}
+\ointegral*{variable}{body}
+\ointegral*{variable}{body}_{C}
 
 \proj
 \nullspace

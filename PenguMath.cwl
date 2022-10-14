@@ -44,6 +44,7 @@
 \field{letter}
 \C
 \R
+\F
 \N
 \Z
 \Primes

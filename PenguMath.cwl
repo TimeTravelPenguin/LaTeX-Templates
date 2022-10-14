@@ -28,8 +28,8 @@
 \abs*{value}
 \norm{value}
 \norm*{value}
-\inner{value}
-\inner*{value}
+\inner{value}{value}
+\inner*{value}{value}
 
 \re{value}
 \im{value}

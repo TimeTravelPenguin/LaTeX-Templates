@@ -30,6 +30,7 @@
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{#1,#2}
+\DeclarePairedDelimiterXPP{\evalline}[3]{}{[}{\rvert}{_{#2}^{#3}}{#1\delimsize]}
 
 % Math functions / operators
 \DeclareMathOperator{\re}{Re}
@@ -58,7 +59,6 @@
 
 % Math operators
 \newcommand{\logn}[2]{\log_{#1}\!{#2}}
-\newcommand*{\evalline}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}}
 \ProvideDocumentCommand{\integral}{s m m e{_^}}{%
     \int%
     \IfValueT{#4}{_{#4}}%

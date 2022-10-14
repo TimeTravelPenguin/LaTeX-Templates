@@ -30,6 +30,8 @@
 \norm*{value}
 \inner{value}{value}
 \inner*{value}{value}
+\evalline{expression}{from}{to}
+\evalline*{expression}{from}{to}
 
 \re{value}
 \im{value}
@@ -53,7 +55,6 @@
 \BigTheta{dependant variable}
 
 \logn{base}{value}
-\evalline{expression}{from}{to}
 \integral{variable}{body}
 \integral{variable}{body}_{a}^{b}
 \integral*{variable}{body}

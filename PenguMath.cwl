@@ -38,6 +38,7 @@
 \Arg{value}
 \Log{value}
 \Res{value}
+\lcm{value}
 
 \fx{function name}{dependant variable}
 

@@ -86,6 +86,8 @@
 \end{theorem*}
 \end{definition}
 \end{definition*}
+\end{proposition}
+\end{proposition*}
 \end{corollary}
 \end{corollary*}
 \end{lemma}

@@ -71,6 +71,7 @@
 \nullspace
 \rref
 \rank
+\range
 
 \begin{theorem}
 \begin{theorem*}

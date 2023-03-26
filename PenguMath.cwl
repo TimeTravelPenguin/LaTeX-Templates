@@ -97,3 +97,5 @@
 \detMat{row11 & row12 \\ row21 & row22}
 \begin{amatrix}{cols}
 \end{amatrix}
+
+\eqline{}

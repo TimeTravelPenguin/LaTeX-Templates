@@ -15,6 +15,9 @@
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[noabbrev]{cleveref}
 
+% Set equation numbers to include section numbers
+\AtBeginDocument{\numberwithin{equation}{section}}
+
 \ProvideDocumentCommand{\newmathop}{m m e{_^}}{%
     \operatorname{#1}%
     \IfValueT{#3}{_{#3}}%

@@ -8,8 +8,11 @@
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{mathtools}
+\RequirePackage{thmtools}
 \RequirePackage{xparse}
-\RequirePackage{derivative}%
+\RequirePackage{derivative}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage[noabbrev]{cleveref}
 
 \ProvideDocumentCommand{\newmathop}{m m e{_^}}{%
     \operatorname{#1}%
@@ -88,16 +91,10 @@
 \DeclareMathOperator{\range}{range}
 
 % Environments
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem*{theorem*}{Theorem}
-\newtheorem{definition}{Definition}[section]
-\newtheorem*{definition*}{Definition}
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem*{proposition*}{Proposition}
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem*{corollary*}{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{lemma*}{Lemma}
+\declaretheoremstyle[bodyfont=\normalfont]{normalbody}
+
+\declaretheorem[numberwithin=section]{theorem, definition, proposition, corrollary, lemma}[style=plain]
+\declaretheorem[numberwithin=section]{example, remark}[style=normalbody, numbered=no]
 
 % Matrices
 \newcommand{\mat}[1]{\ensuremath{\begin{matrix}#1\end{matrix}}}

@@ -74,24 +74,20 @@
 \range
 
 \begin{theorem}
-\begin{theorem*}
 \begin{definition}
-\begin{definition*}
+\begin{proposition}
 \begin{corollary}
-\begin{corollary*}
 \begin{lemma}
-\begin{lemma*}
+\begin{example}
+\begin{remark}
 
 \end{theorem}
-\end{theorem*}
 \end{definition}
-\end{definition*}
 \end{proposition}
-\end{proposition*}
 \end{corollary}
-\end{corollary*}
 \end{lemma}
-\end{lemma*}
+\end{example}
+\end{remark}
 
 \mat{row11 & row12 \\ row21 & row22}
 \pmat{row11 & row12 \\ row21 & row22}

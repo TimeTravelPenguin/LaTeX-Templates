@@ -5,8 +5,12 @@
 #include:amssymb
 #include:amsthm
 #include:mathtools
+#include:thmtools
+#include:etoolbox
 #include:xparse
 #include:derivative
+#include:enumitem
+#include:cleveref
 
 \newmathop{name}{value}
 

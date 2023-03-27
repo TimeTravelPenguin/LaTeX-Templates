@@ -9,6 +9,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{mathtools}
 \RequirePackage{thmtools}
+\RequirePackage{etoolbox}
 \RequirePackage{xparse}
 \RequirePackage{derivative}
 \RequirePackage[shortlabels]{enumitem}
@@ -23,17 +24,40 @@
 
 \DeclareMathSymbol{\shortminus}{\mathbin}{AMSa}{"39}
 
-% Custom groups
+% Paired delimiters
+
 \DeclarePairedDelimiter{\parenth}{(}{)}
 \DeclarePairedDelimiter{\vparenth}{\langle}{\rangle}
 \DeclarePairedDelimiter{\sparenth}{[}{]}
-\DeclarePairedDelimiter{\set}{\{}{\}}
+%\DeclarePairedDelimiter{\set}{\{}{\}}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{#1,#2}
-\DeclarePairedDelimiterXPP{\evalline}[3]{}{[}{\rvert}{_{#2}^{#3}}{#1\delimsize]}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{
+    \ifblank{#1}{\:\cdot\:}{#1}
+}
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{
+    \ifblank{#1}{\:\cdot\:}{#1}
+}
+
+\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{
+    \mathclose{}\ifblank{#1}{\:\cdot\:}{#1},
+    \ifblank{#2}{\:\cdot\:}{#2}\mathopen{}
+}
+
+\DeclarePairedDelimiterX{\evalline}[1]{[}{\vert}{\mathopen{}#1\mathopen{}\delimsize]\!}
+
+% Src: mathttools docs (2022/06/29), p. 27
+\providecommand\given{}
+\newcommand\SetSymbol[1][]{%
+    \nonscript\:#1\vert
+    \allowbreak
+    \nonscript\:
+    \mathopen{}}
+\DeclarePairedDelimiterX\set[1]\{\}{%
+    \renewcommand\given{\SetSymbol[\delimsize]}
+    #1
+}
+
 
 % Math functions / operators
 \DeclareMathOperator{\re}{Re}

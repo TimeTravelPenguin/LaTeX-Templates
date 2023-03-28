@@ -2,11 +2,10 @@
 \ProvidesPackage{PenguTex}
 
 \RequirePackage{tikz}
-\usepackage{tikz-cd}
 \RequirePackage{tikz-3dplot}
 \RequirePackage{pgfplots}
 
-\usetikzlibrary{automata, positioning, arrows, calc, arrows.meta, shapes.multipart, decorations.markings}
+\usetikzlibrary{automata, positioning, arrows, calc, arrows.meta, shapes.multipart, decorations.markings, cd}
 
 \pgfplotsset{compat = newest}
 \usepgfplotslibrary{colormaps}
@@ -51,42 +50,25 @@
 
 % Tikz settings
 
-% pgfplots setting defaults
-%\pgfplotsset{%
-%    compat=newest,
-%    every axis/.append style={%
-    %        clip=false,
-    %        axis lines=middle,
-    %        xlabel={$x$},
-    %        ylabel={$y$},
-    %    }%
-%}
-
 \tikzset{%
-    ->,
-    >=stealth',
-    node distance=2cm,
-    .every state/.style={thick, fill=gray!10},
-    initial text=$ $,
-}
+    PenguStyle/.style={%
+        ->,
+        >=stealth',
+        node distance=2cm,
+        .every state/.style={thick, fill=gray!10},
+        initial text=$ $,
 
-\tikzset{%
-    every text node part/.style={align=center}
+        dot/.style={draw=black, fill=white, circle, inner sep=2pt},
+        enum/.style={baseline={([yshift=-1em] current bounding box.north)}},
+        base at/.style={baseline={(#1.base)}},
+        no enum/.style={baseline=default}
+    }%
 }
-
-\tikzset{stretch/.initial=1}
 
 \tikzset{
     between/.style args={#1 and #2}{
         at = ($(#1)!0.5!(#2)$)
     }
-}
-
-\tikzset{
-    dot/.style={draw=black, fill=white, circle, inner sep=2pt},
-    enum/.style={baseline={([yshift=-1em] current bounding box.north)}},
-    base at/.style={baseline={(#1.base)}},
-    no enum/.style={baseline=default},
 }
 
 % New enum environments

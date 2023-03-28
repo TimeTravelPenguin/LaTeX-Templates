@@ -120,8 +120,8 @@
 % Environments
 \declaretheoremstyle[bodyfont=\normalfont]{normalbody}
 
-\declaretheorem[numberwithin=section]{theorem, definition, proposition, corrollary, lemma}[style=plain]
-\declaretheorem[numberwithin=section]{example, remark}[style=normalbody, numbered=no]
+\declaretheorem[numberwithin=section, style=normalbody]{theorem, definition, proposition, corrollary, lemma}
+\declaretheorem[style=normalbody, numbered=no]{example, remark}
 
 % Matrices
 \newcommand{\mat}[1]{\ensuremath{\begin{matrix}#1\end{matrix}}}

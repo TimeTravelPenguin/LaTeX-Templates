@@ -6,7 +6,6 @@
 #include:amsthm
 #include:mathtools
 #include:thmtools
-#include:etoolbox
 #include:xparse
 #include:derivative
 #include:enumitem
@@ -16,66 +15,69 @@
 
 \shortminus
 
-\parenth{value}
-\parenth*{value}
-\vparenth{value}
-\vparenth*{value}
-\sparenth{value}
-\sparenth*{value}
-\set{value}
-\set*{value}
-\floor{value}
-\floor*{value}
-\ceil{value}
-\ceil*{value}
-\abs{value}
-\abs*{value}
-\norm{value}
-\norm*{value}
-\inner{value}{value}
-\inner*{value}{value}
-\evalline{expression}{from}{to}
-\evalline*{expression}{from}{to}
+\parenth{value}#m
+\parenth*{value}#m
+\vparenth{value}#m
+\vparenth*{value}#m
+\sparenth{value}#m
+\sparenth*{value}#m
+\set{value}#m
+\set*{value}#m
+\floor{value}#m
+\floor*{value}#m
+\ceil{value}#m
+\ceil*{value}#m
+\abs{value}#m
+\abs*{value}#m
+\norm{value}#m
+\norm*{value}#m
+\inner{value}{value}#m
+\inner*{value}{value}#m
+\evalline{expression}{from}{to}#m
+\evalline*{expression}{from}{to}#m
 
-\re{value}
-\im{value}
-\Arg{value}
-\Log{value}
-\Res{value}
-\lcm{value}
+# only available in \set or \set*
+\given#m
 
-\fx{function name}{dependant variable}
+\re{value}#m
+\im{value}#m
+\Arg{value}#m
+\Log{value}#m
+\Res{value}#m
+\lcm{value}#m
 
-\rfrac{numerator}{denominator}
+\fx{function name}{dependant variable}#m
 
-\field{letter}
-\C
-\R
-\F
-\N
-\Z
-\Primes
-\BigO{dependant variable}
-\BigOmega{dependant variable}
-\BigTheta{dependant variable}
+\rfrac{numerator}{denominator}#m
 
-\logn{base}{value}
-\integral{variable}{body}
-\integral{variable}{body}_{a}^{b}
-\integral*{variable}{body}
-\integral*{variable}{body}_{a}^{b}
-\ointegral{variable}{body}
-\ointegral{variable}{body}_{C}
-\ointegral*{variable}{body}
-\ointegral*{variable}{body}_{C}
-\cis{z}
-\cis*{z}
+\field{letter}#m
+\C#m
+\R#m
+\F#m
+\N#m
+\Z#m
+\Primes#m
+\BigO{dependant variable}#m
+\BigOmega{dependant variable}#m
+\BigTheta{dependant variable}#m
 
-\proj
-\nullspace
-\rref
-\rank
-\range
+\logn{base}{value}#m
+\integral{variable}{body}#m
+\integral{variable}{body}_{a}^{b}#m
+\integral*{variable}{body}#m
+\integral*{variable}{body}_{a}^{b}#m
+\ointegral{variable}{body}#m
+\ointegral{variable}{body}_{C}#m
+\ointegral*{variable}{body}#m
+\ointegral*{variable}{body}_{C}#m
+\cis{z}#m
+\cis*{z}#m
+
+\proj#m
+\nullspace#m
+\rref#m
+\rank#m
+\range#m
 
 \begin{theorem}
 \begin{definition}
@@ -100,4 +102,4 @@
 \begin{amatrix}{cols}
 \end{amatrix}
 
-\eqline{}
+\eqline{}#m

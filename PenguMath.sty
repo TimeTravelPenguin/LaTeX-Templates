@@ -9,7 +9,6 @@
 \RequirePackage{amsthm}
 \RequirePackage{mathtools}
 \RequirePackage{thmtools}
-\RequirePackage{etoolbox}
 \RequirePackage{xparse}
 \RequirePackage{derivative}
 \RequirePackage[shortlabels]{enumitem}
@@ -29,22 +28,23 @@
 
 % Paired delimiters
 
+\newcommand{\blank}{\:{\cdot}\:}
+
 \DeclarePairedDelimiter{\parenth}{(}{)}
 \DeclarePairedDelimiter{\vparenth}{\langle}{\rangle}
 \DeclarePairedDelimiter{\sparenth}{[}{]}
 %\DeclarePairedDelimiter{\set}{\{}{\}}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{
-    \ifblank{#1}{\:\cdot\:}{#1}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{%
+    \IfBlankTF{#1}{\blank}{#1}%
 }
-\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{
-    \ifblank{#1}{\:\cdot\:}{#1}
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{%
+    \IfBlankTF{#1}{\blank}{#1}%
 }
 
-\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{
-    \mathclose{}\ifblank{#1}{\:\cdot\:}{#1},
-    \ifblank{#2}{\:\cdot\:}{#2}\mathopen{}
+\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{%
+    \mathclose{}\IfBlankTF{#1}{\blank}{#1},\IfBlankTF{#2}{\blank}{#2}\mathopen{}%
 }
 
 \DeclarePairedDelimiterX{\evalline}[1]{[}{\vert}{\mathopen{}#1\mathopen{}\delimsize]\!}

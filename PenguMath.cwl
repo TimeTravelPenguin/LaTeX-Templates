@@ -45,6 +45,7 @@
 \Log{value}#m
 \Res{value}#m
 \lcm{value}#m
+\GL{value}#m
 \esssup{value}#m
 
 \fx{function name}{dependant variable}#m

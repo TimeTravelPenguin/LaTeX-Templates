@@ -34,7 +34,6 @@
 \inner{value}{value}#m
 \inner*{value}{value}#m
 \evalline{expression}{from}{to}#m
-\evalline*{expression}{from}{to}#m
 
 # only available in \set or \set*
 \given#m

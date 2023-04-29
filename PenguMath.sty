@@ -47,7 +47,8 @@
     \mathclose{}\IfBlankTF{#1}{\blank}{#1},\IfBlankTF{#2}{\blank}{#2}\mathopen{}%
 }
 
-\DeclarePairedDelimiterX{\evalline}[1]{[}{\vert}{\mathopen{}#1\mathopen{}\delimsize]\!}
+\DeclarePairedDelimiterX{\evallinehelper}[1]{[}{\vert}{\mathopen{}#1\mathopen{}\delimsize]\!}
+\ProvideDocumentCommand{\evalline}{m m m}{\ensuremath{\evallinehelper*{#1}_{#2}^{#3}}}
 
 % Src: mathttools docs (2022/06/29), p. 27
 \providecommand\given{}

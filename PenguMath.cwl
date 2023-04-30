@@ -79,6 +79,7 @@
 \rref#m
 \rank#m
 \range#m
+\ran#m
 
 \begin{theorem}
 \begin{definition}

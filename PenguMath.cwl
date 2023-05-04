@@ -57,6 +57,7 @@
 \F#m
 \N#m
 \Z#m
+\Q#M
 \Primes#m
 \BigO{dependant variable}#m
 \BigOmega{dependant variable}#m

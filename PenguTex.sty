@@ -1,15 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{PenguTex}
 
-\RequirePackage{tikz}
-\RequirePackage{tikz-3dplot}
-\RequirePackage{pgfplots}
-
-\usetikzlibrary{automata, positioning, arrows, calc, arrows.meta, shapes.multipart, decorations.markings, cd}
-
-\pgfplotsset{compat = newest}
-\usepgfplotslibrary{colormaps}
-
 \RequirePackage[a4paper,
                 left=27mm,
                 right=27mm,
@@ -24,6 +15,41 @@
 \RequirePackage{ulem}
 \RequirePackage[noabbrev]{cleveref}
 \RequirePackage{tabularx}
+\RequirePackage{ifthen}
+
+% Load before pgfplots to avoid "table" option clash
+\RequirePackage[usenames, dvipsnames, svgnames, table]{xcolor}
+
+\RequirePackage{tikz}
+\RequirePackage{tikz-3dplot}
+\RequirePackage{pgfplots}
+
+\usetikzlibrary{automata, positioning, arrows, calc, arrows.meta, shapes.multipart, decorations.markings, cd}
+
+\pgfplotsset{compat = newest}
+\usepgfplotslibrary{colormaps}
+
+% Custom colours
+\definecolor{underlineFontContour}{named}{White}
+\definecolor{darkBg}{HTML}{2D2D2D}
+\definecolor{hrefColour}{named}{Blue}
+
+% Dark Mode
+\newboolean{DARKMODE}
+\setboolean{DARKMODE}{false}
+\newcommand{\darkmode}{%
+    \setboolean{DARKMODE}{true}
+    \colorlet{underlineFontContour}{darkBg}%
+    \colorlet{hrefColour}{Cyan}%
+    \pagecolor{darkBg}%
+    \color{white}%
+}
+
+% Draft Stamp
+\newcommand{\setdraft}{%
+    \usepackage[firstpageonly=true,color=red!20,scale=7,vpos=0.38\paperheight]{draftwatermark}
+    \SetWatermarkText{\textsc{Draft}}
+}
 
 % Nicer underline
 \renewcommand{\ULdepth}{1pt}
@@ -31,8 +57,13 @@
 
 \newcommand{\betterunderline}[1]{%
     \uline{\phantom{#1}}%
-    \llap{\contour{white}{#1}}%
+    \llap{\contour{underlineFontContour}{#1}}%
 }
+
+% Nicer href
+\newcommand{\betterhref}[2]{\href{#1}{\textcolor{hrefColour}{\betterunderline{#2}}}}
+
+%%%
 
 \AtBeginDocument{\setlength{\parindent}{0pt}}
 

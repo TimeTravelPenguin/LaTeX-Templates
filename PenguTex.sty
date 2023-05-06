@@ -33,6 +33,7 @@
 \definecolor{underlineFontContour}{named}{White}
 \definecolor{darkBg}{HTML}{2D2D2D}
 \definecolor{hrefColour}{named}{Blue}
+\definecolor{hrefColourDarkMode}{HTML}{73b7ff}
 
 % Dark Mode
 \newboolean{DARKMODE}
@@ -40,7 +41,7 @@
 \newcommand{\darkmode}{%
     \setboolean{DARKMODE}{true}
     \colorlet{underlineFontContour}{darkBg}%
-    \colorlet{hrefColour}{Cyan}%
+    \colorlet{hrefColour}{hrefColourDarkMode}%
     \pagecolor{darkBg}%
     \color{white}%
 }

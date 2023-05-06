@@ -1,22 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{PenguTex}
 
-\RequirePackage[a4paper,
-                left=27mm,
-                right=27mm,
-                top=20mm,
-                bottom=15mm,
-                footskip=10mm]{geometry}
-\RequirePackage{parskip}
-\RequirePackage{enumitem}
-\RequirePackage{csquotes}
-\RequirePackage{xparse}
-\RequirePackage{contour}
-\RequirePackage{ulem}
-\RequirePackage[noabbrev]{cleveref}
-\RequirePackage{tabularx}
-\RequirePackage{ifthen}
-
 % Load before pgfplots to avoid "table" option clash
 \RequirePackage[usenames, dvipsnames, svgnames, table]{xcolor}
 
@@ -28,6 +12,21 @@
 
 \pgfplotsset{compat = newest}
 \usepgfplotslibrary{colormaps}
+
+\RequirePackage[a4paper,
+                left=27mm,
+                right=27mm,
+                top=20mm,
+                bottom=15mm,
+                footskip=10mm]{geometry}
+\RequirePackage{parskip}
+\RequirePackage{enumitem}
+\RequirePackage{xparse}
+\RequirePackage{contour}
+\RequirePackage{ulem}
+\RequirePackage[noabbrev]{cleveref}
+\RequirePackage{tabularx}
+\RequirePackage{ifthen}
 
 % Custom colours
 \definecolor{underlineFontContour}{named}{White}

@@ -44,6 +44,7 @@
 \Log{value}#m
 \Res{value}#m
 \lcm{value}#m
+\charmath{value}#m
 \GL{value}#m
 \esssup{value}#m
 
